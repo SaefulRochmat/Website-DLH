@@ -9,8 +9,6 @@ import {
   Twitter,
 } from 'lucide-react';
 import Link from 'next/link';
-import NavBarWithOutEffect from '../components/NavBarWithOutEffect';
-import Footer from '../components/footer';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
@@ -74,8 +72,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <NavBarWithOutEffect />
-
       <div className="min-h-screen bg-gray-50 mt-24">
         <div className="container mx-auto px-4 py-12">
           <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
@@ -142,8 +138,6 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }
