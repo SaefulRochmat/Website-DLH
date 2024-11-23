@@ -9,66 +9,66 @@ import {
   Twitter,
 } from 'lucide-react';
 import Link from 'next/link';
-import { Map, View } from 'ol';
-import TileLayer from 'ol/layer/Tile';
-import OSM from 'ol/source/OSM';
-import { fromLonLat } from 'ol/proj';
-import { useEffect, useRef } from 'react';
-import Feature from 'ol/Feature';
-import Icon from 'ol/style/Icon'; 
-import Style from 'ol/style/Style';
-import VectorLayer from 'ol/layer/Vector';
-import VectorSource from 'ol/source/Vector';
-import Point from 'ol/geom/Point';
+// import { Map, View } from 'ol';
+// import TileLayer from 'ol/layer/Tile';
+// import OSM from 'ol/source/OSM';
+// import { fromLonLat } from 'ol/proj';
+// import { useEffect, useRef } from 'react';
+// import Feature from 'ol/Feature';
+// import Icon from 'ol/style/Icon'; 
+// import Style from 'ol/style/Style';
+// import VectorLayer from 'ol/layer/Vector';
+// import VectorSource from 'ol/source/Vector';
+// import Point from 'ol/geom/Point';
 
 export default function ContactPage() {
-  const mapRef = useRef(null);
+  // const mapRef = useRef(null);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const map = new Map({
-        target: mapRef.current,
-        layers: [
-          new TileLayer({
-            source: new OSM(),
-          }),
-        ],
-        view: new View({
-          center: fromLonLat([108.2406735, -6.8384226]), // Koordinat DLH Kabupaten Majalengka
-          zoom: 15,
-        }),
-      });
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     const map = new Map({
+  //       target: mapRef.current,
+  //       layers: [
+  //         new TileLayer({
+  //           source: new OSM(),
+  //         }),
+  //       ],
+  //       view: new View({
+  //         center: fromLonLat([108.2406735, -6.8384226]), // Koordinat DLH Kabupaten Majalengka
+  //         zoom: 15,
+  //       }),
+  //     });
 
-      // Custom icon untuk marker
-      const iconFeature = new Feature({
-        geometry: new Point(fromLonLat([108.2406735, -6.8384226])), // Koordinat DLH Kabupaten Majalengka
-        name: 'Dinas Lingkungan Hidup Kabupaten Majalengka',
-      });
+  //     // Custom icon untuk marker
+  //     const iconFeature = new Feature({
+  //       geometry: new Point(fromLonLat([108.2406735, -6.8384226])), // Koordinat DLH Kabupaten Majalengka
+  //       name: 'Dinas Lingkungan Hidup Kabupaten Majalengka',
+  //     });
 
-      const iconStyle = new Style({
-        image: new Icon({
-          anchor: [0.5, 46],
-          anchorXUnits: 'fraction',
-          anchorYUnits: 'pixels',
-          scale: 0.05,
-          src: 'https://cdn-icons-png.flaticon.com/512/854/854866.png', // Ganti URL jika ingin ikon lain
-        }),
-      });
+  //     const iconStyle = new Style({
+  //       image: new Icon({
+  //         anchor: [0.5, 46],
+  //         anchorXUnits: 'fraction',
+  //         anchorYUnits: 'pixels',
+  //         scale: 0.05,
+  //         src: 'https://cdn-icons-png.flaticon.com/512/854/854866.png', // Ganti URL jika ingin ikon lain
+  //       }),
+  //     });
 
-      iconFeature.setStyle(iconStyle);
+  //     iconFeature.setStyle(iconStyle);
 
-      const vectorSource = new VectorSource({
-        features: [iconFeature],
-      });
+  //     const vectorSource = new VectorSource({
+  //       features: [iconFeature],
+  //     });
 
-      const vectorLayer = new VectorLayer({
-        source: vectorSource,
+  //     const vectorLayer = new VectorLayer({
+  //       source: vectorSource,
 
-      });
+  //     });
 
-      map.addLayer(vectorLayer);
-    }
-  }, []);
+  //     map.addLayer(vectorLayer);
+  //   }
+  // }, []);
 
   return (
     <>
@@ -85,7 +85,7 @@ export default function ContactPage() {
             <div className="grid md:grid-cols-2 gap-8 p-8">
               {/* Map Section */}
               <div className="w-full h-[500px] rounded-xl overflow-hidden shadow-lg">
-                <div ref={mapRef} style={{ width: '100%', height: '100%' }} />
+                {/* <div ref={mapRef} style={{ width: '100%', height: '100%' }} /> */}
               </div>
 
               {/* Contact Information */}

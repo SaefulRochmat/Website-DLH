@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
@@ -19,8 +19,8 @@ import {
   PiggyBank,
   Recycle 
 } from 'lucide-react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+// import L from 'leaflet';
+// import 'leaflet/dist/leaflet.css';
 import NavBarWithOutEffect from '../components/NavBarWithOutEffect';
 import Footer from '../components/footer';
 
@@ -88,18 +88,18 @@ const WasteManagementMap = () => {
     </Table>
   );
 
-  const markerColors = {
-    tps3r: 'blue',
-    bankSampah: 'green',
-    tps: 'red',
-    tpa: 'purple'
-  };
+  // const markerColors = {
+  //   tps3r: 'blue',
+  //   bankSampah: 'green',
+  //   tps: 'red',
+  //   tpa: 'purple'
+  // };
 
-  const createCustomIcon = (color) => L.divIcon({
-    className: 'custom-marker',
-    html: `<div style="background-color:${color};width:15px;height:15px;border-radius:50%;border:2px solid white;"></div>`,
-    iconSize: [15, 15]
-  });
+  // const createCustomIcon = (color) => L.divIcon({
+  //   className: 'custom-marker',
+  //   html: `<div style="background-color:${color};width:15px;height:15px;border-radius:50%;border:2px solid white;"></div>`,
+  //   iconSize: [15, 15]
+  // });
 
   const toggleLayer = (layer) => {
     setVisibleLayers(prev => 
@@ -135,7 +135,7 @@ const WasteManagementMap = () => {
                   </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow relative">
-                  <MapContainer 
+                  {/* <MapContainer 
                   center={[-6.8355, 108.2187]} 
                   zoom={10} 
                   style={{ height: '100%', width: '100%' }}
@@ -163,7 +163,7 @@ const WasteManagementMap = () => {
                       </Marker>
                       ))
                   )}
-                  </MapContainer>
+                  </MapContainer> */}
               </CardContent>
             </Card>
             <Tabs value={activeTab} onValueChange={setActiveTab} className='w-full lg:w-[1200px] m-auto mb-10'>
