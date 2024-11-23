@@ -1,0 +1,44 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  password  String
+  role      String
+  createdAt DateTime @default(now())
+
+  laporanMasuk LaporanMasuk[]
+}
+
+model LaporanMasyarakat {
+  id           Int      @id @default(autoincrement())
+  nama         String
+  kontak       String?
+  judulLaporan String
+  deskripsi    String
+  kategori     String   // New field added
+  lokasi       String   // New field added since it was in your request
+  status       String   @default("menunggu")
+  createdAt    DateTime @default(now())
+
+  laporanMasuk LaporanMasuk[]
+}
+
+model LaporanMasuk {
+  id                  Int      @id @default(autoincrement())
+  laporanMasyarakatId Int
+  userId              Int
+  tindakan            String
+  status              String   @default("diproses")
+  createdAt           DateTime @default(now())
+
+  laporanMasyarakat LaporanMasyarakat @relation(fields: [laporanMasyarakatId], references: [id])
+  user             User              @relation(fields: [userId], references: [id])
+}
