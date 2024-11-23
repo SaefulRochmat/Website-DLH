@@ -1,4 +1,4 @@
-import ContactPage from "../components/KontakPage";
+import Kontakpage from "../components/dynamicKontakPage";
 
 export async function generateMetadata() {
   return {
@@ -11,7 +11,7 @@ export async function generateMetadata() {
 export default function HalamanKontak () {
   return (
     <>
-      <ContactPage/>
+      <Kontakpage/>
     </>
   );
 }
