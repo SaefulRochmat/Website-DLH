@@ -1,5 +1,5 @@
 "use client";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import {
 	MapPin,
@@ -10,8 +10,8 @@ import {
 	Twitter,
 } from "lucide-react";
 import Link from "next/link";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+// import "leaflet/dist/leaflet.css";
+// import L from "leaflet";
 
 // Disable SSR for Leaflet components
 // const MapContainer = dynamic(
@@ -32,12 +32,12 @@ import L from "leaflet";
 // );
 
 export default function KontakPage() {
-	// Custom icon for marker
-	const markerIcon = L.icon({
-		iconUrl: "https://cdn-icons-png.flaticon.com/512/854/854866.png",
-		iconSize: [40, 40],
-		iconAnchor: [20, 40],
-	});
+	// // Custom icon for marker
+	// const markerIcon = L.icon({
+	// 	iconUrl: "https://cdn-icons-png.flaticon.com/512/854/854866.png",
+	// 	iconSize: [40, 40],
+	// 	iconAnchor: [20, 40],
+	// });
 
 	return (
 		<div className="min-h-screen bg-gray-50 mt-24">
@@ -53,7 +53,7 @@ export default function KontakPage() {
 					<div className="grid md:grid-cols-2 gap-8 p-8">
 						{/* Map Section */}
 						<div className="w-full h-[500px] rounded-xl overflow-hidden shadow-lg">
-							<MapContainer
+							{/* <MapContainer
 								center={[-6.836018, 108.230415]}
 								zoom={15}
 								style={{ height: "100%", width: "100%" }}
@@ -75,7 +75,7 @@ export default function KontakPage() {
 										</div>
 									</Popup>
 								</Marker>
-							</MapContainer>
+							</MapContainer> */}
 						</div>
 
 						{/* Contact Information */}
