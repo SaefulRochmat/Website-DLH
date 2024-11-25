@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import localFont from "next/font/local";
 import "./globals.css";
 import 'leaflet/dist/leaflet.css';
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
