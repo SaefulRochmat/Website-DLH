@@ -1,6 +1,5 @@
 "use client";
-// import dynamic from "next/dynamic";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+
 import {
 	MapPin,
 	Mail,
@@ -8,36 +7,23 @@ import {
 	Facebook,
 	Instagram,
 	Twitter,
-} from "lucide-react";
-import Link from "next/link";
-// import "leaflet/dist/leaflet.css";
-// import L from "leaflet";
-
-// Disable SSR for Leaflet components
-// const MapContainer = dynamic(
-//   () => import("react-leaflet").then((mod) => mod.MapContainer),
-//   { ssr: false }
-// );
-// const TileLayer = dynamic(
-//   () => import("react-leaflet").then((mod) => mod.TileLayer),
-//   { ssr: false }
-// );
-// const Marker = dynamic(
-//   () => import("react-leaflet").then((mod) => mod.Marker),
-//   { ssr: false }
-// );
-// const Popup = dynamic(
-//   () => import("react-leaflet").then((mod) => mod.Popup),
-//   { ssr: false }
-// );
-
+  } from 'lucide-react';
+  import Link from 'next/link';
+  import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+  import "leaflet/dist/leaflet.css";
+  import { useEffect } from 'react';
+  import L from 'leaflet';
+  
 export default function KontakPage() {
-	// // Custom icon for marker
-	// const markerIcon = L.icon({
-	// 	iconUrl: "https://cdn-icons-png.flaticon.com/512/854/854866.png",
-	// 	iconSize: [40, 40],
-	// 	iconAnchor: [20, 40],
-	// });
+	useEffect(() => {
+		// Fix untuk ikon default Leaflet
+		delete L.Icon.Default.prototype._getIconUrl;
+		L.Icon.Default.mergeOptions({
+		  iconRetinaUrl: '/leaflet/marker-icon-2x.png',
+		  iconUrl: '/leaflet/marker-icon.png',
+		  shadowUrl: '/leaflet/marker-shadow.png',
+		});
+	  }, []);
 
 	return (
 		<div className="min-h-screen bg-gray-50 mt-24">
@@ -53,29 +39,24 @@ export default function KontakPage() {
 					<div className="grid md:grid-cols-2 gap-8 p-8">
 						{/* Map Section */}
 						<div className="w-full h-[500px] rounded-xl overflow-hidden shadow-lg">
-							{/* <MapContainer
-								center={[-6.836018, 108.230415]}
-								zoom={15}
-								style={{ height: "100%", width: "100%" }}
+						<MapContainer
+							center={[-6.8384226, 108.2406735]}
+							zoom={15}
+							style={{ height: "100%", width: "100%" }}
 							>
-								<TileLayer
-									url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-									attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-								/>
-								<Marker position={[-6.836018, 108.230415]} icon={markerIcon}>
-									<Popup>
-										<div>
-											<h3 className="font-bold">
-												Dinas Lingkungan Hidup Majalengka
-											</h3>
-											<p>
-												Jl. KH. Abdul Halim No.311, Majalengka Kulon, Kec.
-												Majalengka, Kabupaten Majalengka
-											</p>
-										</div>
-									</Popup>
-								</Marker>
-							</MapContainer> */}
+							<TileLayer
+								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+								attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+							/>
+							<Marker position={[-6.8384226, 108.2406735]}>
+								<Popup>
+								<div>
+									<h3 className="font-bold">Dinas Lingkungan Hidup Majalengka</h3>
+									<p>Jl. Gerakan Koperasi No.38, Majalengka Wetan</p>
+								</div>
+								</Popup>
+							</Marker>
+							</MapContainer>
 						</div>
 
 						{/* Contact Information */}
