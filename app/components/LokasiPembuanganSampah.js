@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
@@ -19,13 +19,56 @@ import {
   PiggyBank,
   Recycle 
 } from 'lucide-react';
-// import L from 'leaflet';
-// import 'leaflet/dist/leaflet.css';
-import NavBarWithOutEffect from '../components/NavBarWithOutEffect';
-import Footer from '../components/footer';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 const WasteManagementMap = () => {
   const [visibleLayers, setVisibleLayers] = useState(['tps3r', 'bankSampah', 'tps', 'tpa']);
+  const [customIcons, setCustomIcons] = useState(null);
+
+  useEffect(() => {
+    // Membuat custom icons untuk setiap tipe lokasi
+    const icons = {
+      tps3r: new L.Icon({
+        iconUrl: '/leaflet/marker-icon-blue.png',
+        iconRetinaUrl: '/leaflet/marker-icon-2x-blue.png',
+        shadowUrl: '/leaflet/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      }),
+      bankSampah: new L.Icon({
+        iconUrl: '/leaflet/marker-icon-green.png',
+        iconRetinaUrl: '/leaflet/marker-icon-2x-green.png',
+        shadowUrl: '/leaflet/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      }),
+      tps: new L.Icon({
+        iconUrl: '/leaflet/marker-icon-red.png',
+        iconRetinaUrl: '/leaflet/marker-icon-2x-red.png',
+        shadowUrl: '/leaflet/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      }),
+      tpa: new L.Icon({
+        iconUrl: '/leaflet/marker-icon-violet.png',
+        iconRetinaUrl: '/leaflet/marker-icon-2x-violet.png',
+        shadowUrl: '/leaflet/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      })
+    };
+    
+    setCustomIcons(icons);
+  }, []);
 
   // Detailed location data with more precise coordinates
   const locations = {
@@ -88,18 +131,18 @@ const WasteManagementMap = () => {
     </Table>
   );
 
-  // const markerColors = {
-  //   tps3r: 'blue',
-  //   bankSampah: 'green',
-  //   tps: 'red',
-  //   tpa: 'purple'
-  // };
+  const markerColors = {
+    tps3r: 'blue',
+    bankSampah: 'green',
+    tps: 'red',
+    tpa: 'purple'
+  };
 
-  // const createCustomIcon = (color) => L.divIcon({
-  //   className: 'custom-marker',
-  //   html: `<div style="background-color:${color};width:15px;height:15px;border-radius:50%;border:2px solid white;"></div>`,
-  //   iconSize: [15, 15]
-  // });
+  const createCustomIcon = (color) => L.divIcon({
+    className: 'custom-marker',
+    html: `<div style="background-color:${color};width:15px;height:15px;border-radius:50%;border:2px solid white;"></div>`,
+    iconSize: [15, 15]
+  });
 
   const toggleLayer = (layer) => {
     setVisibleLayers(prev => 
@@ -109,61 +152,61 @@ const WasteManagementMap = () => {
     );
   };
 
+
+  if (!customIcons) return null;
+
   return (
     <>
-        <header>
-            <NavBarWithOutEffect/>
-        </header>
         <main>
           <div>
             <Card className="w-full lg:w-[1200px] h-[500px] m-auto mt-28 mb-8 flex flex-col rounded-none border-t-4 border-t-green-700 shadow-md">
               <CardHeader>
                   <CardTitle className="flex justify-between items-center">
-                  <h1 className='text-lg text-green-600'>Peta Manajemen Sampah Majalengka</h1>
-                  <div className="flex gap-2">
+                    <h1 className='text-lg text-green-600'>Peta Manajemen Sampah Majalengka</h1>
+                    <div className="flex gap-2">
                       {Object.keys(locations).map(layer => (
-                      <Badge 
+                        <Badge 
                           key={layer} 
                           variant={visibleLayers.includes(layer) ? 'default' : 'secondary'}
                           onClick={() => toggleLayer(layer)}
                           className="cursor-pointer"
-                      >
+                        >
                           {layer.toUpperCase()}
-                      </Badge>
+                        </Badge>
                       ))}
-                  </div>
+                    </div>
                   </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow relative">
-                  {/* <MapContainer 
-                  center={[-6.8355, 108.2187]} 
-                  zoom={10} 
-                  style={{ height: '100%', width: '100%' }}
-                  className="z-10"
+                  <MapContainer 
+                    center={[-6.8355, 108.2187]} 
+                    zoom={10} 
+                    style={{ height: '100%', width: '100%' }}
+                    className="z-10"
                   >
-                  <TileLayer
+                    <TileLayer
                       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                       attribution='&copy; OpenStreetMap contributors'
-                  />
-                  
-                  {Object.entries(locations).map(([type, items]) => 
+                    />
+                    
+                    {Object.entries(locations).map(([type, items]) => 
                       visibleLayers.includes(type) && items.map((location, index) => (
-                      <Marker 
+                        <Marker 
                           key={`${type}-${index}`} 
-                          position={location.coordinates} 
-                          icon={createCustomIcon(markerColors[type])}
-                      >
+                          position={location.coordinates}
+                          icon={customIcons[type]}
+                        >
                           <Popup>
-                          <div>
+                            <div>
                               <strong>{location.name}</strong>
                               <p>{location.kecamatan || location.kelurahan || 'Lokasi'}</p>
                               <Badge variant="outline">{type.toUpperCase()}</Badge>
-                          </div>
+                            </div>
                           </Popup>
-                      </Marker>
+                        </Marker>
                       ))
-                  )}
-                  </MapContainer> */}
+                    )}
+                  </MapContainer>
               </CardContent>
             </Card>
             <Tabs value={activeTab} onValueChange={setActiveTab} className='w-full lg:w-[1200px] m-auto mb-10'>
@@ -222,9 +265,6 @@ const WasteManagementMap = () => {
             </Tabs>
           </div>
         </main>
-        <footer>
-            <Footer/>
-        </footer>
     </>
   );
 };
