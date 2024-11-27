@@ -27,7 +27,17 @@ export default function Footer() {
                     <br />
                     Kabupaten Majalengka
                 </p>
-                <p className="text-sm hover:text-green-200 transition-colors duration-300">
+                <Link 
+                    href="https://www.google.com/maps/place/Dinas+Lingkungan+Hidup+Kabupaten+Majalengka/@-6.8384173,108.2380986,17z/data=!3m1!4b1!4m6!3m5!1s0x2e6f25f5cdb7670f:0x3871ec69971dc405!8m2!3d-6.8384226!4d108.2406735!16s%2Fg%2F11f5h2ty9w?authuser=0&entry=ttu&g_ep=EgoyMDI0MTExOC4wIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D"
+                    className="text-sm max-w-xs mx-auto hover:text-green-200 transition-colors duration-300 mt-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <p>
+                        Jl. Gerakan Koperasi No.38, Majalengka Wetan, Kec. Majalengka, Kabupaten Majalengka, Jawa Barat 45411.
+                    </p>
+                </Link>
+                <p className="text-sm hover:text-green-200 transition-colors duration-300 mt-4">
                     Copyright © {new Date().getFullYear()} - All right reserved
                 </p>
             </aside>
