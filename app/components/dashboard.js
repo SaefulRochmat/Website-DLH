@@ -503,7 +503,7 @@ const Dashboard = () => {
             laporanMasyarakat={laporanMasyarakat}
             laporanMasuk={laporanMasuk}
           />
-        )};
+        )}
       </main>
     </div>
     
