@@ -36,13 +36,20 @@ const Dashboard = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || '';
+
   const fetchLaporanMasyarakat = async () => {
     try {
-      const response = await fetch('/api/laporan-masyarakat', {
+      const response = await fetch(`${BASE_URL}/api/laporan-masyarakat`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
+      
+      if (!response.ok) {
+        throw new Error('Gagal mengambil data laporan masyarakat');
+      }
+
       const data = await response.json();
       setLaporanMasyarakat(data);
       setDashboardStats(prev => ({
@@ -52,16 +59,22 @@ const Dashboard = () => {
       }));
     } catch (error) {
       console.error('Error fetching laporan masyarakat:', error);
+      alert('Gagal mengambil data laporan: ' + error.message);
     }
   };
 
   const fetchLaporanMasuk = async () => {
     try {
-      const response = await fetch('/api/laporan-masuk', {
+      const response = await fetch(`${BASE_URL}/api/laporan-masuk`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
       });
+
+      if (!response.ok) {
+        throw new Error('Gagal mengambil data laporan masuk');
+      }
+
       const data = await response.json();
       setLaporanMasuk(data);
       setDashboardStats(prev => ({
@@ -70,6 +83,7 @@ const Dashboard = () => {
       }));
     } catch (error) {
       console.error('Error fetching laporan masuk:', error);
+      alert('Gagal mengambil data laporan masuk: ' + error.message);
     }
   };
 
@@ -82,14 +96,22 @@ const Dashboard = () => {
 
   const handleProsesLaporan = async (laporanId) => {
     try {
-      const userId = 24270312;
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Sesi anda telah berakhir. Silakan login kembali.');
+        window.location.href = '/login';
+        return;
+      }
+
+      const userId = 1; // Idealnya ambil dari token/session
       const tindakan = 'Diproses';
 
-      const response = await fetch('/api/laporan-masuk', {
+      // Proses laporan masuk
+      const response = await fetch(`${BASE_URL}/api/laporan-masuk`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           laporanMasyarakatId: laporanId,
@@ -98,29 +120,34 @@ const Dashboard = () => {
         })
       });
 
-      if (response.ok) {
-        await fetch(`/api/laporan-masyarakat/${laporanId}`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          },
-          body: JSON.stringify({
-            status: 'Diproses'
-          })
-        });
-  
-        await fetchLaporanMasyarakat();
-        await fetchLaporanMasuk();
-        alert('Laporan berhasil diproses');
-      } else {
+      if (!response.ok) {
         const errorData = await response.json();
-        console.error('Error processing laporan:', errorData);
-        alert('Gagal memproses laporan');
+        throw new Error(errorData.message || 'Gagal memproses laporan');
       }
+
+      // Update status laporan
+      const updateResponse = await fetch(`${BASE_URL}/api/laporan-masyarakat/${laporanId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          status: 'Diproses'
+        })
+      });
+
+      if (!updateResponse.ok) {
+        throw new Error('Gagal mengupdate status laporan');
+      }
+
+      // Refresh data
+      await fetchLaporanMasyarakat();
+      await fetchLaporanMasuk();
+      alert('Laporan berhasil diproses');
     } catch (error) {
       console.error('Error:', error);
-      alert('Terjadi kesalahan');
+      alert('Terjadi kesalahan: ' + error.message);
     }
   };
 
