@@ -18,7 +18,7 @@ export default function Footer() {
                         src={Logo}
                         width={150}
                         height={150}
-                        alt="Logo DLH Majalengka"
+                        alt="Logo Dinas Lingkungan Hidup Majalengka"
                         className="fill-current hover:opacity-90 transition-opacity duration-300"
                     />
                 </Link>
