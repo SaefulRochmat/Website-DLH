@@ -39,7 +39,7 @@ export default function KontakPage() {
 					<div className="grid md:grid-cols-2 gap-8 p-8">
 						{/* Map Section */}
 						<div className="w-full h-[500px] rounded-xl overflow-hidden shadow-lg">
-						<MapContainer
+							<MapContainer
 							center={[-6.8384226, 108.2406735]}
 							zoom={15}
 							style={{ height: "100%", width: "100%" }}

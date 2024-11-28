@@ -14,7 +14,7 @@ export default function NavBarWithOutEffect() {
         PROFIL: {
             items: [
                 { title: 'Dinas Lingkungan Hidup', href: '/profil-dlh' },
-                { title: 'Sturktur Organisasi', href: '/struktur-organisasi' },
+                { title: 'Struktur Organisasi', href: '/struktur-organisasi' },
             ]
         },
         'PUBLIKASI DATA': {
