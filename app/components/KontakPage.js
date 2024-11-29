@@ -38,11 +38,11 @@ export default function KontakPage() {
 					{/* Content Container */}
 					<div className="grid md:grid-cols-2 gap-8 p-8">
 						{/* Map Section */}
-						<div className="w-full h-[500px] rounded-xl overflow-hidden shadow-lg">
+						<div className="relative z-0 w-full h-[500px] rounded-xl overflow-hidden shadow-lg">
 							<MapContainer
 							center={[-6.8384226, 108.2406735]}
 							zoom={15}
-							style={{ height: "100%", width: "100%" }}
+							className='w-full h-full z-0'
 							>
 							<TileLayer
 								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
