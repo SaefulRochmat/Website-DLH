@@ -1,0 +1,155 @@
+[33mcommit 8e64f6882784ed4a6eafb9850b14f449a3865683[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Wed Nov 27 09:44:03 2024 +0700
+
+    install shadcn-ui
+
+[33mcommit 91fa07a914b174a1acf322e33494580c55ea1298[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Wed Nov 27 09:40:15 2024 +0700
+
+    add component ui shadcnUI
+
+[33mcommit 4360cdd3508e71079686bc44c8256c71b0021105[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Wed Nov 27 09:35:14 2024 +0700
+
+    fix error
+
+[33mcommit 98a4b3171f75c6689b0c4ba18f8775372d64ef27[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Wed Nov 27 09:30:25 2024 +0700
+
+    penambahan prteksi middleware
+
+[33mcommit 9f86b4bd76297c527a62042e5e0aa4e1e1507d77[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Wed Nov 27 08:46:32 2024 +0700
+
+    penambahan alamat pada component footer
+
+[33mcommit 136d0a3721056a1e5130e1e64aead6422f3b851c[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Wed Nov 27 08:40:01 2024 +0700
+
+    penghapusan semicolon di ui dashboard
+
+[33mcommit a245eed2bb4eb8dac8d2a27e256cc16de778eb86[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Wed Nov 27 08:29:14 2024 +0700
+
+    Update end point API laporan-masyarakat, laporan-masuk, dan dashboard
+
+[33mcommit 805123812af6bd7b10335649491387bdef5ac6f4[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Tue Nov 26 07:32:28 2024 +0700
+
+    Menambahkan add database neon di vercel dan perubahan di prisma schema dan .env
+
+[33mcommit be386a31fe778ca3568f07aabc6cfd0aacb7679b[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Mon Nov 25 19:11:24 2024 +0700
+
+    Menambahkan Speed Insight untuk vercel di layout.js
+
+[33mcommit 2a03cc8ec9fbd136624010403d1063291f6a4798[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Mon Nov 25 19:05:57 2024 +0700
+
+    Menambahkan Fitur Map di Halaman Publikasi data TPS,TPA
+
+[33mcommit c142a87b5b4693f16d47c915dd4116305213343e[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Mon Nov 25 18:39:45 2024 +0700
+
+    Menambahkan Fitur Map di Kontak lagi & mendeploy nya
+
+[33mcommit 22fcbbdce92af838b9a4b62ced06b47b2041adae[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sun Nov 24 20:36:19 2024 +0700
+
+    Kembali ke semula deploy tanpa fitur map di halaman kontak
+
+[33mcommit d840669eb907b1b8ebd42accc256850de3f3c4db[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sun Nov 24 19:49:18 2024 +0700
+
+    Mengganti url env
+
+[33mcommit 1c90e9e4fc365e9e9202e4faae75e207342fb94a[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sun Nov 24 19:26:06 2024 +0700
+
+    Mengganti Provider di Prisma
+
+[33mcommit d91faaf9d6202ca88fd4f17bfc8a071573e60a94[m
+Author: unknown <apipska.10@gmail.com>
+Date:   Sun Nov 24 18:39:25 2024 +0700
+
+    Adding Dynamic at Kontak
+
+[33mcommit 137395d53765678f4aaa8ae5b2df5eb5e72894ba[m
+Author: unknown <apipska.10@gmail.com>
+Date:   Sun Nov 24 18:33:32 2024 +0700
+
+    Adding Dynamic at Kontak
+
+[33mcommit 75a8e7719fe9bb315132c090ae727dfa6127170f[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sun Nov 24 18:07:25 2024 +0700
+
+    Mencoba menambahkan ftur map pada kontak dan mendeploynya
+
+[33mcommit 8601754c28044f1925b2df79d6a90eea8be5fa0d[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sat Nov 23 19:43:13 2024 +0700
+
+    Mencoba deploy tanpa map di halaman publikasi data tpa/tps dan kontak
+
+[33mcommit 92df69f99bce903273bba11a119fc1b1fa122cea[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sat Nov 23 19:30:20 2024 +0700
+
+    Mmemindahkan Komponen NavBarWithOtEffect dan Footer ke /kontak langsung
+
+[33mcommit 0fa51b9c74f9f06aa9144d6a392570a68a74b47b[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sat Nov 23 19:11:00 2024 +0700
+
+    Perubahan Map di halaman Kontak menggunakan openLayer
+
+[33mcommit 53cfb7e5515f38b2f2653d4f83d84de97c00d9aa[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sat Nov 23 18:18:04 2024 +0700
+
+    Error Handling Kontak again
+
+[33mcommit 171ae3a33d74aa786052046ae643e181158350c9[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sat Nov 23 17:53:51 2024 +0700
+
+    Error Hanling di halaman kontak dan menambahkan dynamic handling map di components
+
+[33mcommit f52bd0e292ed2b09dbff353e33123c60cb99a4dc[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sat Nov 23 17:14:59 2024 +0700
+
+    Error Handling di Components/KontakPage
+
+[33mcommit 9d03275e79a63100d6c26a9ad8a85de966a7ec2b[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sat Nov 23 15:52:37 2024 +0700
+
+    Penambahan Postinstall di packageKSON dan menginstall nya
+
+[33mcommit 191f573662fcb39e4aa22af0755dc45f2d3cefd5[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sat Nov 23 15:47:26 2024 +0700
+
+    Penambahan Postinstall di packageKSON
+
+[33mcommit aa2306781b4fe24f18a7ab77544ce94635223d8d[m
+Author: ASEP-PC <saeful.rochmat240302@gmail.com>
+Date:   Sat Nov 23 14:48:02 2024 +0700
+
+    Proyek Web Company Tahap Deployment

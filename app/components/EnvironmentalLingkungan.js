@@ -20,42 +20,46 @@ const categories = [
 
 const years = [2017, 2018, 2019, 2020, 2021];
 
+const normalizeValue = (value) => {
+  return value === 0 ? 0 : +(value / 100).toFixed(2);
+};
+
 const EnvironmentalDashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [selectedYear, setSelectedYear] = useState("all");
 
-  // Data lengkap dari 2017-2021
+  // Data lengkap dari 2017-2021 dengan nilai yang sudah dinormalisasi
   const data = [
     // 2017
-    {"id":1,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":0,"tahun":2017},
-    {"id":2,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":431,"tahun":2017},
-    {"id":3,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":352,"tahun":2017},
-    {"id":4,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":0,"tahun":2017},
-    {"id":5,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":6039,"tahun":2017},
+    {"id":1,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":normalizeValue(0),"tahun":2017},
+    {"id":2,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":normalizeValue(431),"tahun":2017},
+    {"id":3,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":normalizeValue(352),"tahun":2017},
+    {"id":4,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":normalizeValue(0),"tahun":2017},
+    {"id":5,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":normalizeValue(6039),"tahun":2017},
     // 2018
-    {"id":6,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":3289,"tahun":2018},
-    {"id":7,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":291,"tahun":2018},
-    {"id":8,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":352,"tahun":2018},
-    {"id":9,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":3467,"tahun":2018},
-    {"id":10,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":8049,"tahun":2018},
+    {"id":6,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":normalizeValue(3289),"tahun":2018},
+    {"id":7,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":normalizeValue(291),"tahun":2018},
+    {"id":8,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":normalizeValue(352),"tahun":2018},
+    {"id":9,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":normalizeValue(3467),"tahun":2018},
+    {"id":10,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":normalizeValue(8049),"tahun":2018},
     // 2019
-    {"id":11,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":3326,"tahun":2019},
-    {"id":12,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":347,"tahun":2019},
-    {"id":13,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":352,"tahun":2019},
-    {"id":14,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":2421,"tahun":2019},
-    {"id":15,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":8049,"tahun":2019},
+    {"id":11,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":normalizeValue(3326),"tahun":2019},
+    {"id":12,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":normalizeValue(347),"tahun":2019},
+    {"id":13,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":normalizeValue(352),"tahun":2019},
+    {"id":14,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":normalizeValue(2421),"tahun":2019},
+    {"id":15,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":normalizeValue(8049),"tahun":2019},
     // 2020
-    {"id":16,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":3515,"tahun":2020},
-    {"id":17,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":347,"tahun":2020},
-    {"id":18,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":352,"tahun":2020},
-    {"id":19,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":2750,"tahun":2020},
-    {"id":20,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":8221,"tahun":2020},
+    {"id":16,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":normalizeValue(3515),"tahun":2020},
+    {"id":17,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":normalizeValue(347),"tahun":2020},
+    {"id":18,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":normalizeValue(352),"tahun":2020},
+    {"id":19,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":normalizeValue(2750),"tahun":2020},
+    {"id":20,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":normalizeValue(8221),"tahun":2020},
     // 2021
-    {"id":21,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":3430,"tahun":2021},
-    {"id":22,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":62,"tahun":2021},
-    {"id":23,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":352,"tahun":2021},
-    {"id":24,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":8947,"tahun":2021},
-    {"id":25,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":0,"tahun":2021}
+    {"id":21,"capaian_pembangunan":"PERSENTASE PENANGANAN SAMPAH","nilai_kondisi_lingkungan":normalizeValue(3430),"tahun":2021},
+    {"id":22,"capaian_pembangunan":"PERSENTASE PENCEMARAN STATUS MUTU AIR","nilai_kondisi_lingkungan":normalizeValue(62),"tahun":2021},
+    {"id":23,"capaian_pembangunan":"CAKUPAN PENGHIJAUAN WILAYAH RAWAN LONGSOR DAN SUMBER MATA AIR","nilai_kondisi_lingkungan":normalizeValue(352),"tahun":2021},
+    {"id":24,"capaian_pembangunan":"CAKUPAN PENGAWASAN TERHADAP PELAKSANAAN UKL-UPL","nilai_kondisi_lingkungan":normalizeValue(8947),"tahun":2021},
+    {"id":25,"capaian_pembangunan":"TEMPAT PEMBUANGAN SAMPAH (TPS) PER SATUAN PENDUDUK","nilai_kondisi_lingkungan":normalizeValue(0),"tahun":2021}
   ];
 
   const filteredData = useMemo(() => {
@@ -68,6 +72,10 @@ const EnvironmentalDashboard = () => {
     }
     return filtered;
   }, [selectedCategory, selectedYear]);
+
+  const formatPercentage = (value) => {
+    return value.toFixed(2);
+  };
 
   return (
     <>
@@ -140,7 +148,7 @@ const EnvironmentalDashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="flex justify-between items-center">
-                        <span className="text-3xl font-bold">{item.nilai_kondisi_lingkungan}%</span>
+                        <span className="text-3xl font-bold">{formatPercentage(item.nilai_kondisi_lingkungan)}%</span>
                         <span className="text-gray-500">Tahun {item.tahun}</span>
                       </div>
                     </CardContent>
@@ -158,7 +166,7 @@ const EnvironmentalDashboard = () => {
                         <h3 className="font-medium">{item.capaian_pembangunan}</h3>
                         <p className="text-sm text-gray-500">Tahun {item.tahun}</p>
                       </div>
-                      <span className="text-2xl font-bold">{item.nilai_kondisi_lingkungan}%</span>
+                      <span className="text-2xl font-bold">{formatPercentage(item.nilai_kondisi_lingkungan)}%</span>
                     </CardContent>
                   </Card>
                 ))}
@@ -179,7 +187,7 @@ const EnvironmentalDashboard = () => {
                     <TableRow key={item.id}>
                       <TableCell>{item.tahun}</TableCell>
                       <TableCell>{item.capaian_pembangunan}</TableCell>
-                      <TableCell className="text-right">{item.nilai_kondisi_lingkungan}</TableCell>
+                      <TableCell className="text-right">{formatPercentage(item.nilai_kondisi_lingkungan)}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -194,7 +202,7 @@ const EnvironmentalDashboard = () => {
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="tahun" />
                       <YAxis />
-                      <Tooltip />
+                      <Tooltip formatter={(value) => [`${formatPercentage(value)}%`, "Nilai"]} />
                       <Legend />
                       <Line 
                         type="monotone" 
